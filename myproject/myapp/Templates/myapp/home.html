@@ -1,0 +1,49 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h1>INSERT</h1>
+        Enter name: <input type="text" name="txt1"><br>
+        Enter desc: <input type="text" name="txt2"><br>
+        Enter price: <input type="number" name="txt3">
+        <input type="submit" name="action" value="Create">
+
+  
+    <br><br><center>
+    <table border='1'>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        {% for i in items %} 
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.price}}</td>
+        </tr>
+        {% endfor %}
+    </table></center>
+    <script>
+        {% if data %}
+            alert("{{data}}")
+        {% endif %}
+    </script><br><br>
+    <h1>UPDATE</h1>
+    Enter name: <input type="text" name="txt4"><br>
+    Enter desc: <input type="text" name="txt5"><br>
+    Enter price: <input type="number" name="txt6"><br>
+    <input type="submit" name="action" value="Update">
+    <br><br>
+    <h1>DELETE</h1>
+    Enter name: <input type="text" name="txt7"><br>
+    <input type="submit" name="action" value="Delete">
+</form>
+</body>
+</html>
